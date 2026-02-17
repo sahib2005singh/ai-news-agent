@@ -1,0 +1,79 @@
+
+
+[1m> Entering new AgentExecutor chain...[0m
+[32;1m[1;3m
+Invoking: `news_searcher` with `{'query': 'AI'}`
+
+
+[0mTraceback (most recent call last):
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/src/news_agent.py", line 73, in <module>
+    response = agent_executor.invoke({
+        "input": "Find best AI article and prepare Discord post."
+    })
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_classic/chains/base.py", line 167, in invoke
+    self._call(inputs, run_manager=run_manager)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_classic/agents/agent.py", line 1590, in _call
+    next_step_output = self._take_next_step(
+        name_to_tool_map,
+    ...<3 lines>...
+        run_manager=run_manager,
+    )
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_classic/agents/agent.py", line 1290, in _take_next_step
+    list(
+    ~~~~^
+        self._iter_next_step(
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        ),
+        ^^
+    ),
+    ^
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_classic/agents/agent.py", line 1373, in _iter_next_step
+    yield self._perform_agent_action(
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        name_to_tool_map,
+        ^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        run_manager,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_classic/agents/agent.py", line 1398, in _perform_agent_action
+    observation = tool.run(
+        agent_action.tool_input,
+    ...<3 lines>...
+        **tool_run_kwargs,
+    )
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_core/tools/base.py", line 1000, in run
+    raise error_to_raise
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_core/tools/base.py", line 966, in run
+    response = context.run(self._run, *tool_args, **tool_kwargs)
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/venv/lib/python3.13/site-packages/langchain_core/tools/structured.py", line 97, in _run
+    return self.func(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/src/news_agent.py", line 28, in news_searcher
+    if not is_posted(article["link"])
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/sahibjotsingh/Desktop/news_ai_agent/src/database.py", line 23, in is_posted
+    cursor.execute("SELECT 1 FROM posted_articles WHERE link = ?", (link,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: posted_articles
+
+
+[1m> Entering new AgentExecutor chain...[0m
+[32;1m[1;3m
+Invoking: `news_searcher` with `{'query': 'AI'}`
+
+
+[0m[36;1m[1;3m[{"title": "Could India challenge tech boss power at Delhi AI Impact Summit? - BBC", "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBPSEtXQ0trd3o5V1lQbDF0NFhZN0NNdjRBNWo1U2RkcWhiV1E0bVZNa0Rmb1lxNkhkNExfMU5NOUUzNV9xWlFpbzIzU3g4WmIzYnh0NUl2S1dmdw?oc=5", "published": "Tue, 17 Feb 2026 00:12:58 GMT"}, {"title": "China's tech shock threatens the U.S. AI monopoly and is 'just getting started' - CNBC", "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9FTTloeExNNEp0dWNYWlVmVjJSWTJWWjJyVWxaQ3BhdjVIUFo0bVJGNnpBQkZiMzhxamRHSEpDT1lwM1dsSnI1OWRNZTh5M3dFSUVTZ3FESnJQQzJsc01TRHBMWTVNbWcxS25STGhTZmoxSDNxMElHUNIBfkFVX3lxTE55WS1rS0RfMGFKeTJDaGFyQmFFOVVobnQxbTBVQjN5MEhod0xkSmpWLVBzUG5ucmI5ZzlOOG5sQjUwdzZxQjdQcFd4SFpQbHprTnZkLTR2QnN4SVhwcWprYklEMXhDTHJoak83QnVGVEd4U2VLVGFIR0RnVWMwdw?oc=5", "published": "Mon, 16 Feb 2026 12:30:01 GMT"}, {"title": "India to more than double its GPU capacity in six months, says IT Minister Ashwini Vaishnaw at AI Summit - Times of India", "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxOUUFmTVVBczBYQnR5TUdaY3RfUXo3QzhuWGhWYkw5WVdOWXJJbkdSQnBRX3dnXzV2NFNaTTQ4YXJDbnBXZVU0bGlQQ1NpZjdvblhVUUJaclhWeTBzR0pDUzVTeFJmaWIwSUZFS3VFM0thUF9wdEFtNU5pRm1XWHM2U0pOTjJfNTJtV19JN05OZnctdHJBdDk1V1dlSzNqdFFJVUVPM3doaWVHNnJ4UXppMkxrbEFBWGxtZ3NxTjVHSWE4TTB4aHVlc1BEbVZWMnN4X09qbWRpTHZZVlRHQmJRSndzelNUMmFSWlNQN0VIU3hkNG9lUGhFeHo0UlVYcFdvaGU2Q0xWMXBGaDc0VXo5dHdsOUnSAZoCQVVfeXFMTVRDUE01c29GU0pqQ2tkVF95WTVYVkEyc181cTdBc1NMb2ZWZ1U4QWgxUm1kTzdVU0l1cW5VaXBuNGU1NVlXaTV3djhyWkFsMFhqSTVNS2pUaUNnQ2tOVEd1MEY4YkVOa1hPSUYwZEU2VmoyTkM2RWtzMGlHaERKRF9xelhvbjlPTmpwX1A1THRDREJqTGowdVo3dnJnNmxpYXVqbVB3ZC1mZHZ4eEtvMEUxRWNNNVRHa2tfN1BVRnJiTnRZVnN0X0hQX0RtenhLajdtU3k4ajVhVmF1ZU5wN2g2cHAxR0hMdHdyZXVGVm40d3Z4Y01EN3hsOXpMYTJmSDZ5d01OTTNHTW93ZFNBTEVBZjJIcFhIV1lB?oc=5", "published": "Tue, 17 Feb 2026 10:42:00 GMT"}, {"title": "India-AI Impact Summit 2026 - Drishti IAS", "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOQVVHSGVOS25GMGdacGNocnVwNWFQR05DUFFjeVRUcXJEQmF6TzhlTlpyYWttYlVFUnBPNEpfRlNrUEZYM09OOWhNWVVwN05IMS1sT21SNUVLbVA3T3A0UW5QTzZQdEwyb3g1LU9DZEY2TFprXzNvSTF5NFktZ1NZRHZESjZSZnJKakh1S2tsUHJLenVE?oc=5", "published": "Tue, 17 Feb 2026 10:40:31 GMT"}, {"title": "Inaugurated the India AI Impact Expo 2026 at Bharat Mandapam. Being here among innovators, researchers and tech enthusiasts gives a glimpse of the extraordinary potential of AI, Indian talent and innovation. Together, we will shape solutions not just for Indi - x.com", "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBnX2MwMklUS0Y4cTlIa0gwV25qS2VKNGRiMUhZSS03Wjl1RnAySl93NldzZ2JLZnVkVlh5VmN4RGRXRDFZRFJuNEh4MDhsWGdCVm9xQ2RET1E3ZDZuS2UzSEJEOA?oc=5", "published": "Mon, 16 Feb 2026 15:02:34 GMT"}][0m[32;1m[1;3mIndia to more than double its GPU capacity in six months, says IT Minister Ashwini Vaishnaw at AI Summit
+
+• India is expected to more than double its GPU capacity in the next six months.
+• This announcement was made by IT Minister Ashwini Vaishnaw at the AI Impact Summit 2026.
+• The move aims to boost India's artificial intelligence capabilities and make it a major player in the field.
+
+Read more: https://timesofindia.indiatimes.com/tech/news/india-to-more-than-double-its-gpu-capacity-in-six-months-says-it-minister-ashwini-vaishnaw-at-ai-summit/articleshow/98314523.cms[0m
+
+[1m> Finished chain.[0m
+Posted successfully.
+Posted successfully.

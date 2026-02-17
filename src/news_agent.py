@@ -7,8 +7,10 @@ from langchain_classic.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate
 from search import search_news
 from database import is_posted, save_article
+from database import init_db
 import os
 from dotenv import load_dotenv
+init_db()
 load_dotenv()
 
 llm = ChatOllama(
