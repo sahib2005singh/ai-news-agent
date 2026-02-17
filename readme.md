@@ -1,48 +1,56 @@
-An autonomous AI-powered news agent that:
+📰 AI News Agent
 
-Fetches latest AI-related articles from RSS
+Automated RSS → AI Summary → Discord Bot (Fully Local)
 
-Avoids duplicate postings using SQLite
+An autonomous AI-powered news automation system that:
 
-Selects the most relevant article
+Fetches latest AI-related articles from Google News RSS
 
-Generates a clean bullet-point summary
+Selects the most relevant article using a local LLM
 
-Posts it automatically to Discord via webhook
+Generates a concise bullet-point summary
 
-Built using:
+Prevents duplicate posts using SQLite
 
-LangChain
+Posts automatically to Discord via webhook
 
-Ollama (Llama 3.1 local model)
+Runs entirely locally — no external LLM APIs required.
 
-Google News RSS
+🛠️ Built With
 
-SQLite
+LangChain – Tool-calling agent framework
 
-Python
+Ollama (Llama 3.1) – Local LLM for reasoning and summarization
+
+Google News RSS – Real-time AI news feed
+
+SQLite – Lightweight persistence for deduplication
+
+Python – Core implementation
 
 🚀 Features
 
-🔎 Real-time RSS news fetching
+🔎 Real-time AI news aggregation
 
-🧠 AI-powered article selection
+🧠 LLM-powered article selection
 
-✂️ Bullet-point summarization
+✂️ Clean 3–5 bullet-point summaries
 
-🗄️ Deduplication with SQLite
+🗄️ Duplicate prevention via SQLite database
 
-📢 Automatic Discord posting
+📢 Automatic Discord webhook integration
 
-🖥️ Runs fully locally (no external LLM APIs required)
+⏰ Cron-based scheduling support
 
-🏗️ Project Structure
+🖥️ Fully local execution (no cloud dependencies)
+
+
 news_ai_agent/
 │
-├── news_agent.py     # Main AI agent pipeline
-├── search.py         # RSS fetching logic
-├── scraper.py        # Article scraping logic
-├── database.py       # SQLite deduplication
-├── .env              # Environment variables (NOT committed)
-├── requirements.txt
+├── news_agent.py      # Main AI agent pipeline
+├── search.py          # RSS fetching logic
+├── scraper.py         # Article scraping logic (if enabled)
+├── database.py        # SQLite deduplication layer
+├── .env               # Environment variables (ignored in Git)
+├── requirements.txt   # Python dependencies
 └── README.md
