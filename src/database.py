@@ -27,7 +27,7 @@ def is_posted(link):
     return result is not None
 
 
-def save_article(link, title, published):
+def save_article(link):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 

@@ -9,8 +9,8 @@ __pycache__/
 
 news.db
 
-
 *.log
+log.txt
 
 
 .DS_Store
