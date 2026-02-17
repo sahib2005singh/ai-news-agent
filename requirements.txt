@@ -1,0 +1,13 @@
+feedparser
+requests
+beautifulsoup4
+newspaper3k
+python-dotenv
+langchain
+langchain-community
+chromadb
+ollama
+tiktoken
+sqlite3
+
+
