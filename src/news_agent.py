@@ -48,14 +48,15 @@ def post_to_discord(message: str):
 prompt = ChatPromptTemplate.from_messages([
     ("system",
      "You are an AI news agent.\n"
-     "1. Call news_searcher with query='AI'.\n"
-     "2. Select ONE most relevant article.\n"
-     "3. Return a Discord-ready message in this format:\n\n"
+     "1. Call news_searcher with query='New updates in ai'.\n"
+     "2. Select 1 most relevant article.\n"
+     "3. For each article, return a Discord-ready message in this format:\n\n"
      "Title\n\n"
      "• Point 1\n"
      "• Point 2\n"
      "• Point 3\n\n"
      "Read more: <URL>\n\n"
+     "Separate each article with a new line"
      "Return ONLY this formatted text.\n"
      "Do not explain anything."
     ),
@@ -67,7 +68,7 @@ tools = [news_searcher]
 agent = create_tool_calling_agent(llm, tools, prompt)
 
 agent_executor = AgentExecutor( 
-    agent=agent,
+    agent=agent,                
     tools=tools,
     verbose=True
 )

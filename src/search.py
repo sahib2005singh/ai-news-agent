@@ -13,4 +13,3 @@ def search_news(query):
         articles.append({"title":entry.title, "link": entry.link, "published": entry.published})
 
     return articles
-#https://www.technologyreview.com/topic/artificial-intelligence/feed/
